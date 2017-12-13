@@ -24,7 +24,7 @@ module.exports = {
   plugins: ['~/plugins/vue-material'],
 
   build: {
-    vendor: ['vue-material'],
+    vendor: ['vue-material', 'axios'],
     /*
     ** Run ESLint on save
     */
