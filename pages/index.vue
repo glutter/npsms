@@ -30,6 +30,22 @@
         this.menuVisible = !this.menuVisible
       },
       getEN() {
+
+        var today = new Date()
+        var dd = today.getDate()
+        var mm = today.getMonth()+1 //January is 0!
+        var yyyy = today.getFullYear()
+
+        if(dd<10) {
+          dd = '0'+dd
+        }
+        if(mm<10) {
+            mm = '0'+mm
+        }
+
+        today = mm + '.' + dd + '.' + yyyy
+
+
         var url = 'https://api.novaposhta.ua/v2.0/json/'
         var apiKey = '6be5aca674dcb520b2b64a50c9f51935'
         var data = {
@@ -37,6 +53,8 @@
           "modelName": "InternetDocument",
           "calledMethod": "getDocumentList",
           "methodProperties": {
+            "DateTimeFrom": "01.01.2017",
+            "DateTimeTo": today,
             "GetFullList": "1"
           }
         }
