@@ -21,8 +21,8 @@
       <md-table-row>
         <md-table-cell md-numeric></md-table-cell>
         <md-table-cell>
-          С <md-datepicker v-model="$store.state.filterDateFrom" /><br>
-          по <md-datepicker v-model="$store.state.filterDateTo" />
+          С <md-datepicker @input="getEn" v-model="dateFilter.dateFrom" /><br>
+          по <md-datepicker @input="getEn" v-model="dateFilter.dateTo" />
         </md-table-cell>
         <md-table-cell></md-table-cell>
         <md-table-cell></md-table-cell>
@@ -35,12 +35,12 @@
         <md-table-cell></md-table-cell>
       </md-table-row>
 
-      <md-table-row v-for="item in $store.state.createdEn" v-bind:key="item.id">
-        <md-table-cell md-numeric>{{item.IntDocNumber}}</md-table-cell>
+      <md-table-row v-for="item in createdEn" v-bind:key="item.id">
+        <md-table-cell md-numeric><b>{{item.IntDocNumber}}</b></md-table-cell>
         <md-table-cell>{{item.CreateTime}}</md-table-cell>
-        <md-table-cell>{{item.CitySenderDescription}}<br>{{item.SenderDescription}}<br>{{item.SenderAddressDescription}}</md-table-cell>
-        <md-table-cell>{{item.CityRecipientDescription}}<br>{{item.RecipientDescription}}<br>{{item.RecipientAddressDescription}}</md-table-cell>
-        <md-table-cell>{{item.RecipientsPhone}} {{item.RecipientContactPerson}}</md-table-cell>
+        <md-table-cell><b>{{item.CitySenderDescription}}</b><br>{{item.SenderDescription}}<br>{{item.SenderAddressDescription}}</md-table-cell>
+        <md-table-cell><b>{{item.CityRecipientDescription}}</b><br>{{item.RecipientDescription}}<br>{{item.RecipientAddressDescription}}</md-table-cell>
+        <md-table-cell><b>{{item.RecipientsPhone}}</b> {{item.RecipientContactPerson}}</md-table-cell>
         <md-table-cell md-numeric>{{item.Weight}}</md-table-cell>
         <md-table-cell>{{item.RecipientAddressDescription}}</md-table-cell>
         <md-table-cell>{{item.SeatsAmount}}</md-table-cell>
@@ -54,8 +54,18 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
   export default {
-    name: 'NpTable'
+    name: 'NpTable',
+    computed: mapState([
+      'createdEn',
+      'dateFilter'
+    ]),
+    methods: {
+      getEn() {
+        this.$store.dispatch('LOAD_EN_LIST')
+      }
+    }
   }
 </script>
 
