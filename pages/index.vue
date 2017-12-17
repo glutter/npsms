@@ -6,10 +6,7 @@
         <md-button class="md-raised md-accent" @click="getEN">Загрузить ЕН</md-button>
       </md-app-toolbar>
       <md-app-content>
-        <div>
-            <li v-for="item in createdEn" v-bind:key="item.id">{{item.Weight}}</li>
-          </ul>
-        </div>
+        <NpTable/>
       </md-app-content>
     </md-app>
   </div>
@@ -17,13 +14,17 @@
 
 <script>
   import axios from 'axios'
+  import NpTable from '~/components/NpTable'
 
   export default {
     name: 'index',
+    components: {
+      NpTable
+  },
     data: () => ({
       menuVisible: false,
       title: 'NPSms',
-      createdEn: []
+      // createdEn: []
     }),
     methods: {
       toggleMenu() {
@@ -59,12 +60,15 @@
           }
         }
         axios.post(url, data).then((response) => {
-          this.createdEn = response.data.data
-          console.log(this.createdEn)
+          this.$store.commit('getCreatedEn', response.data.data)
+          console.log(this.$store.state.createdEn)
         }).catch(function (error) {
           console.log(error)
         })
       }
+    },
+    mounted () {
+      this.getEN()
     }
   }
 
