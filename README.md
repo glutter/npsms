@@ -1,6 +1,6 @@
-# nuxt-vue
+# element-nuxt
 
-> Nuxt.js project
+> NPSMS
 
 ## Build Setup
 

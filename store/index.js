@@ -8,22 +8,23 @@ const store = () => new Vuex.Store({
 
   state: {
     createdEn: [],
-    dateFilter: {
-      dateFrom: new Date(),
-      dateTo: new Date()
-    }
+    dateFilter: []
   },
   actions: {
     LOAD_EN_LIST: function ({commit}) {
         var url = 'https://api.novaposhta.ua/v2.0/json/'
         var apiKey = '6be5aca674dcb520b2b64a50c9f51935'
+        var apiDateFrom = this.state.dateFilter[0]
+        var apiDateTo = this.state.dateFilter[1]
+        console.log(apiDateFrom, apiDateTo);
+
         var data = {
           "apiKey": apiKey,
           "modelName": "InternetDocument",
           "calledMethod": "getDocumentList",
           "methodProperties": {
-            "DateTimeFrom": this.state.dateFilter.dateFrom.toLocaleDateString("ru-RU"),
-            "DateTimeTo": this.state.dateFilter.dateTo.toLocaleDateString("ru-RU"),
+            "DateTimeFrom": apiDateFrom,
+            "DateTimeTo": apiDateTo,
             "GetFullList": "1"
           }
         }
@@ -38,6 +39,9 @@ const store = () => new Vuex.Store({
   mutations: {
     SET_EN_LIST (state, createdEn) {
       state.createdEn = createdEn
+    },
+    UPDATE_DATE_FILTER (state, dateFilter) {
+      state.dateFilter = dateFilter
     }
   },
   getters: {

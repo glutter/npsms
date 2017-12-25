@@ -1,52 +1,67 @@
 <template>
-    <md-app>
-      <md-app-toolbar class="md-primary">
-        <span class="md-title">{{title}}</span>
-        <md-button class="md-raised md-accent" @click="getEn">Загрузить ЕН</md-button>
-      </md-app-toolbar>
-      <md-app-content>
-        <NpTable/>
-      </md-app-content>
-    </md-app>
+  <el-container>
+  <el-header height="60px">
+    <AppHeader/>
+  </el-header>
+  <el-container>
+    <el-aside width="260px">
+      <AppAside/>
+    </el-aside>
+    <el-main>
+      <AppMain/>
+    </el-main>
+  </el-container>
+</el-container>
 </template>
 
 <script>
-  import NpTable from '~/components/NpTable'
+import AppAside from '~/components/Aside'
+import AppHeader from '~/components/Header'
+import AppMain from '~/components/Main'
 
-
-  export default {
-    name: 'index',
-    components: {
-      NpTable
-  },
-    data: () => ({
-      menuVisible: false,
-      title: 'NPSms'
-    }),
-    methods: {
-      toggleMenu() {
-        this.menuVisible = !this.menuVisible
-      },
-      getEn() {
-        this.$store.dispatch('LOAD_EN_LIST')
-      }
-    },
-    // mounted: function () {
-    //   this.$store.dispatch('LOAD_EN_LIST')
-    // }
-
+export default {
+  components: {
+    AppAside,
+    AppHeader,
+    AppMain
   }
-
+}
 </script>
 
-<style lang="scss" scoped>
-  .md-app {
-    min-height: 100vh;
-    border: 1px solid rgba(#000, .12);
-  } // Demo purposes only
-  .md-drawer {
-    width: 230px;
-    max-width: calc(100vw - 125px);
+<style>
+.el-header, .el-footer {
+    background-color: rgb(202, 15, 93);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    line-height: 60px;
   }
 
+  .el-aside {
+    border-right: 5px solid #eee;
+    text-align: center;
+    line-height: 120px;
+  }
+
+  .el-main {
+
+    color: #333;
+    /* text-align: center;
+    line-height: 160px; */
+  }
+  .el-container.is-vertical {
+    height: 100%;
+  }
+
+  body > .el-container {
+    margin-bottom: 40px;
+  }
+
+  .el-container:nth-child(5) .el-aside,
+  .el-container:nth-child(6) .el-aside {
+    line-height: 260px;
+  }
+
+  .el-container:nth-child(7) .el-aside {
+    line-height: 320px;
+  }
 </style>
