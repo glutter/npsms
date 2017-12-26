@@ -1,12 +1,21 @@
 <template>
   <el-form :inline="true" class="np-form-inline">
-    <el-form-item label="Date">
-      <el-date-picker v-model="dateFilter" format="dd.MM.yyyy" value-format="dd.MM.yyyy" type="daterange" range-separator="-" start-placeholder="Start date"
-        end-placeholder="End date">
+    <el-form-item label="Дата">
+      <el-date-picker
+        v-model="dateFilter"
+        format="dd.MM.yyyy"
+        value-format="dd.MM.yyyy"
+        type="daterange"
+        range-separator="-"
+        start-placeholder="Начало"
+        end-placeholder="Конец">
       </el-date-picker>
     </el-form-item>
     <el-form-item>
-      <el-button type="primary" @click="getEn">GetEn</el-button>
+      <el-button
+      type="primary"
+      @click="getEn">
+      Получить список ЕН</el-button>
     </el-form-item>
   </el-form>
 </template>
@@ -25,7 +34,6 @@
     },
     data() {
       return {
-        value6: ''
       }
     },
     methods: {

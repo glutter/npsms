@@ -3,77 +3,93 @@
     :data="createdEn"
     style="width: 100%"
     stripe
+    border
     max-height="720">
+
     <el-table-column
-      type="selection"
-      width="55">
+      type="selection">
     </el-table-column>
+
     <el-table-column
-      type="index"
-      width="50">
+      type="index">
     </el-table-column>
+
     <el-table-column
       prop="IntDocNumber"
       label="Номер EN"
-      width="150">
+      class-name="bold"
+      width="160">
     </el-table-column>
+
     <el-table-column
       prop="CreateTime"
-      label="Дата создания"
-      width="120">
+      label="Дата создания">
     </el-table-column>
+
     <el-table-column
-      prop="CitySenderDescription"
       label="Отправитель"
-      width="120">
+      width="180">
+      <template slot-scope="scope">
+          <p class="bold">{{scope.row.CitySenderDescription}}</p>
+          <p>{{scope.row.SenderDescription}}</p>
+          <p>{{scope.row.SenderAddressDescription}}</p>
+      </template>
     </el-table-column>
+
     <el-table-column
-      prop="CityRecipientDescription"
       label="Получатель"
-      width="120">
+      width="180">
+      <template slot-scope="scope">
+          <p class="bold">{{scope.row.CityRecipientDescription}}</p>
+          <p>{{scope.row.RecipientDescription}}</p>
+          <p>{{scope.row.RecipientAddressDescription}}</p>
+      </template>
     </el-table-column>
+
     <el-table-column
-      prop="RecipientsPhone"
-      label="Телефон получателя"
-      width="300">
+      label="Телефон получателя">
+      <template slot-scope="scope">
+          <p class="bold">{{scope.row.RecipientsPhone}}</p>
+          <p>{{scope.row.RecipientContactPerson}}</p>
+      </template>
     </el-table-column>
+
     <el-table-column
       prop="Weight"
-      label="Вес"
-      width="120">
+      label="Вес">
     </el-table-column>
+
     <el-table-column
-      prop="RecipientAddressDescription"
-      label="Объявленная стоимость"
-      width="120">
+      prop="Cost"
+      label="Объявленная стоимость">
     </el-table-column>
+
     <el-table-column
       prop="SeatsAmount"
-      label="Колличество мест"
-      width="120">
+      label="Колличество мест">
     </el-table-column>
+
     <el-table-column
       prop="CostOnSite"
-      label="Стоимость доставки"
-      width="120">
+      label="Стоимость доставки">
     </el-table-column>
+
     <el-table-column
       prop="StateName"
-      label="Статус"
-      width="120">
+      label="Статус">
     </el-table-column>
+
     <el-table-column
       prop="EstimatedDeliveryDate"
-      label="Дата доставки"
-      width="120">
+      label="Дата доставки">
     </el-table-column>
+
     <el-table-column
       fixed="right"
-      label="Operations"
-      width="120">
+      label="Operations">
       <template slot-scope="scope">
         <el-button
-          @click.native.prevent="deleteRow(scope.$index, tableData4)"
+          @click.native.prevent="deleteRow(scope.$index, createdEn)"
           type="text"
           size="small">
           Send SMS
@@ -96,57 +112,19 @@ import { mapState } from 'vuex'
     ]),
     data() {
       return {
-        tableData4: [{
-          date: '2016-05-03',
-          name: 'Tom',
-          state: 'California',
-          city: 'Los Angeles',
-          address: 'No. 189, Grove St, Los Angeles',
-          zip: 'CA 90036'
-        }, {
-          date: '2016-05-02',
-          name: 'Tom',
-          state: 'California',
-          city: 'Los Angeles',
-          address: 'No. 189, Grove St, Los Angeles',
-          zip: 'CA 90036'
-        }, {
-          date: '2016-05-04',
-          name: 'Tom',
-          state: 'California',
-          city: 'Los Angeles',
-          address: 'No. 189, Grove St, Los Angeles',
-          zip: 'CA 90036'
-        }, {
-          date: '2016-05-01',
-          name: 'Tom',
-          state: 'California',
-          city: 'Los Angeles',
-          address: 'No. 189, Grove St, Los Angeles',
-          zip: 'CA 90036'
-        }, {
-          date: '2016-05-08',
-          name: 'Tom',
-          state: 'California',
-          city: 'Los Angeles',
-          address: 'No. 189, Grove St, Los Angeles',
-          zip: 'CA 90036'
-        }, {
-          date: '2016-05-06',
-          name: 'Tom',
-          state: 'California',
-          city: 'Los Angeles',
-          address: 'No. 189, Grove St, Los Angeles',
-          zip: 'CA 90036'
-        }, {
-          date: '2016-05-07',
-          name: 'Tom',
-          state: 'California',
-          city: 'Los Angeles',
-          address: 'No. 189, Grove St, Los Angeles',
-          zip: 'CA 90036'
-        }]
       }
     }
   }
 </script>
+
+<style>
+  .bold {
+    font-weight: 700;
+  }
+  .el-table .cell {
+    word-break: normal;
+  }
+  .el-table {
+    font-size: inherit;
+  }
+</style>

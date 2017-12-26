@@ -4,9 +4,9 @@
     <AppHeader/>
   </el-header>
   <el-container>
-    <el-aside width="260px">
+    <!-- <el-aside width="260px">
       <AppAside/>
-    </el-aside>
+    </el-aside> -->
     <el-main>
       <AppMain/>
     </el-main>
@@ -30,7 +30,7 @@ export default {
 
 <style>
 .el-header, .el-footer {
-    background-color: rgb(202, 15, 93);
+    background-color: rgb(206, 14, 72);
     color: rgb(255, 255, 255);
     text-align: center;
     line-height: 60px;
