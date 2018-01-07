@@ -29,39 +29,39 @@ export default {
 </script>
 
 <style>
-.el-header, .el-footer {
-    background-color: rgb(206, 14, 72);
-    color: rgb(255, 255, 255);
-    text-align: center;
-    line-height: 60px;
-  }
+.el-header,
+.el-footer {
+  background-color: rgb(206, 14, 72);
+  color: rgb(255, 255, 255);
+  text-align: center;
+  line-height: 60px;
+}
 
-  .el-aside {
-    border-right: 5px solid #eee;
-    text-align: center;
-    line-height: 120px;
-  }
+.el-aside {
+  border-right: 5px solid #eee;
+  text-align: center;
+  line-height: 120px;
+}
 
-  .el-main {
-
-    color: #333;
-    /* text-align: center;
+.el-main {
+  color: #333;
+  /* text-align: center;
     line-height: 160px; */
-  }
-  .el-container.is-vertical {
-    height: 100%;
-  }
+}
+.el-container.is-vertical {
+  height: 100%;
+}
 
-  body > .el-container {
-    margin-bottom: 40px;
-  }
+body > .el-container {
+  margin-bottom: 40px;
+}
 
-  .el-container:nth-child(5) .el-aside,
-  .el-container:nth-child(6) .el-aside {
-    line-height: 260px;
-  }
+.el-container:nth-child(5) .el-aside,
+.el-container:nth-child(6) .el-aside {
+  line-height: 260px;
+}
 
-  .el-container:nth-child(7) .el-aside {
-    line-height: 320px;
-  }
+.el-container:nth-child(7) .el-aside {
+  line-height: 320px;
+}
 </style>

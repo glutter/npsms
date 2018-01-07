@@ -3,42 +3,35 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'element-nuxt',
+    title: 'starter',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'NPSMS' }
+      { hid: 'description', name: 'description', content: 'Nuxt.js project' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-  /*
-  ** Customize the progress bar color
-  */
-  loading: { color: '#3B8070' },
-  /*
-  ** Plugins
-  */
   plugins: [
     '~plugins/element-ui'
   ],
-
+  /*
+  ** Global CSS
+  */
   css: [
     'element-ui/lib/theme-chalk/index.css'
   ],
   /*
-  ** Build configuration
+  ** Add axios globally
   */
   build: {
+    vendor: ['axios', 'element-ui'],
     /*
-    ** Run ESLint on save
+    ** Run ESLINT on save
     */
-    analyze: false,
-    vendor: ['element-ui', 'axios'],
-
     extend (config, ctx) {
-      if (ctx.dev && ctx.isClient) {
+      if (ctx.isClient) {
         config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,

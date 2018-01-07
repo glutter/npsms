@@ -6,8 +6,8 @@
 </template>
 
 <script>
-  import EnTable from '~/components/EnTable'
-  import EnFilter from '~/components/EnFilter'
+import EnTable from '~/components/EnTable'
+import EnFilter from '~/components/EnFilter'
 export default {
   components: {
     EnTable,

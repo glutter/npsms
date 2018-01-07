@@ -23,6 +23,7 @@
 
     <el-table-column
       prop="CreateTime"
+      width="120"
       label="Дата создания">
     </el-table-column>
 
@@ -47,7 +48,8 @@
     </el-table-column>
 
     <el-table-column
-      label="Телефон получателя">
+      label="Телефон получателя"
+      width="130">
       <template slot-scope="scope">
           <p class="bold">{{scope.row.RecipientsPhone}}</p>
           <p>{{scope.row.RecipientContactPerson}}</p>
@@ -56,40 +58,47 @@
 
     <el-table-column
       prop="Weight"
-      label="Вес">
+      label="Вес"
+      width="70">
     </el-table-column>
 
     <el-table-column
       prop="Cost"
+      width="130"
       label="Объявленная стоимость">
     </el-table-column>
 
     <el-table-column
       prop="SeatsAmount"
+      width="130"
       label="Колличество мест">
     </el-table-column>
 
     <el-table-column
       prop="CostOnSite"
+      width="130"
       label="Стоимость доставки">
     </el-table-column>
 
     <el-table-column
       prop="StateName"
+      width="130"
       label="Статус">
     </el-table-column>
 
     <el-table-column
       prop="EstimatedDeliveryDate"
+      width="140"
       label="Дата доставки">
     </el-table-column>
 
     <el-table-column
       fixed="right"
-      label="Operations">
+      width="130"
+      label="Операции">
       <template slot-scope="scope">
         <el-button
-          @click.native.prevent="deleteRow(scope.$index, createdEn)"
+          @click.native.prevent="sendSMS(scope.$index, createdEn)"
           type="text"
           size="small">
           Send SMS
@@ -101,30 +110,30 @@
 
 <script>
 import { mapState } from 'vuex'
-  export default {
-    methods: {
-      deleteRow(index, rows) {
-        rows.splice(index, 1);
-      }
-    },
-    computed: mapState([
-      'createdEn'
-    ]),
-    data() {
-      return {
-      }
+
+export default {
+  methods: {
+    sendSMS (index, row) {
+      var enNumber = row[index].IntDocNumber
+      var phoneNumber = '+' + row[index].RecipientsPhone
+      this.$store.dispatch('SEND_SMS', [enNumber, phoneNumber])
     }
+  },
+  computed: mapState(['createdEn']),
+  data () {
+    return {}
   }
+}
 </script>
 
 <style>
-  .bold {
-    font-weight: 700;
-  }
-  .el-table .cell {
-    word-break: normal;
-  }
-  .el-table {
-    font-size: inherit;
-  }
+.bold {
+  font-weight: 700;
+}
+.el-table .cell {
+  word-break: normal;
+}
+.el-table {
+  font-size: inherit;
+}
 </style>
