@@ -5,10 +5,19 @@ import axios from 'axios'
 Vue.use(Vuex)
 
 const store = () => {
+  var d = new Date()
+  var month = d.getMonth() + 1
+  var day = d.getDate()
+  var year = d.getFullYear()
+  const date = day + '.' + month + '.' + year
+
   return new Vuex.Store({
     state: {
       createdEn: [],
-      dateFilter: []
+      dateFilter: [
+        date,
+        date
+      ]
     },
     actions: {
       LOAD_EN_LIST: function ({ commit }) {
