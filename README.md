@@ -1,22 +1,25 @@
-# nuxt-vue-express
+# vuelectron
 
-> Nuxt.js project
+> An electron-vue project
 
-## Build Setup
+#### Build Setup
 
 ``` bash
 # install dependencies
-$ npm install # Or yarn install
+npm install
 
-# serve with hot reload at localhost:3000
-$ npm run dev
+# serve with hot reload at localhost:9080
+npm run dev
 
-# build for production and launch server
-$ npm start
+# build electron application for production
+npm run build
+
+
+# lint all JS/Vue component files in `src/`
+npm run lint
+
 ```
 
-For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).
+---
 
-## Backpack
-
-We use [backpack](https://github.com/palmerhq/backpack) to watch and build the application, so you can use the latest ES6 features (module syntax, async/await, etc.).
+This project was generated with [electron-vue](https://github.com/SimulatedGREG/electron-vue)@[1c165f7](https://github.com/SimulatedGREG/electron-vue/tree/1c165f7c5e56edaf48be0fbb70838a1af26bb015) using [vue-cli](https://github.com/vuejs/vue-cli). Documentation about the original structure can be found [here](https://simulatedgreg.gitbooks.io/electron-vue/content/index.html).

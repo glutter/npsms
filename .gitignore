@@ -1,14 +1,10 @@
-# dependencies
-node_modules
-
-# logs
+.DS_Store
+dist/electron/*
+dist/web/*
+build/*
+!build/icons
+node_modules/
 npm-debug.log
-
-# Nuxt build
-.nuxt
-
-# Nuxt generate
-dist
-
-# Backpack build
-build
+npm-debug.log.*
+thumbs.db
+!.gitkeep
