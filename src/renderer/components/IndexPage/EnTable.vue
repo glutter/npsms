@@ -1,9 +1,11 @@
 <template>
   <el-table
+    v-loading="loading"
     :data="createdEn"
     style="width: 100%"
     stripe
     border
+    empty-text='Нет данных'
     max-height="720">
 
     <el-table-column
@@ -121,7 +123,8 @@ export default {
   },
   computed: {
     ...mapState({
-      createdEn: state => state.EnTable.createdEn
+      createdEn: state => state.EnTable.createdEn,
+      loading: state => state.EnTable.loading
     })
   },
   data () {

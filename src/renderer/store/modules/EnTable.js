@@ -1,7 +1,8 @@
 import axios from 'axios'
 
 const state = {
-  createdEn: []
+  createdEn: [],
+  loading: false
 }
 
 const mutations = {
@@ -37,8 +38,10 @@ const actions = {
     axios
       .post(url, data)
       .then(response => {
-        commit('SET_EN_LIST', response.data.data)
-        console.log(this.state.EnTable.createdEn)
+        if (response.data) {
+          commit('SET_EN_LIST', response.data.data)
+          console.log(this.state.EnTable.createdEn)
+        }
       })
       .catch(function (error) {
         console.log(error)

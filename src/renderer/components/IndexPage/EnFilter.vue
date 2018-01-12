@@ -7,8 +7,9 @@
         value-format="dd.MM.yyyy"
         type="daterange"
         range-separator="-"
-        start-placeholder="Начало"
-        end-placeholder="Конец">
+        start-placeholder="От"
+        end-placeholder="До"
+        :picker-options="pickerOptions">
       </el-date-picker>
     </el-form-item>
     <el-form-item>
@@ -33,7 +34,11 @@ export default {
     }
   },
   data () {
-    return {}
+    return {
+      pickerOptions: {
+        firstDayOfWeek: 1
+      }
+    }
   },
   methods: {
     getEn () {
