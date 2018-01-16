@@ -1,4 +1,4 @@
-<template>
+<template v-cloak>
   <div id="app">
     <router-view></router-view>
   </div>
@@ -12,4 +12,7 @@
 
 <style>
   /* CSS */
+  [v-cloak] {
+    display: none;
+  }
 </style>

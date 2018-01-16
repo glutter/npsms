@@ -1,29 +1,22 @@
 <template>
   <el-container>
-  <el-header height="60px">
-    <AppHeader/>
-  </el-header>
-  <el-container>
-    <!-- <el-aside width="260px">
+    <el-aside width="260px">
       <AppAside/>
-    </el-aside> -->
+    </el-aside>
     <el-main>
       <AppMain/>
     </el-main>
-  </el-container>
 </el-container>
 </template>
 
 <script>
   import AppAside from './Layout/Aside'
-  import AppHeader from './Layout/Header'
   import AppMain from './Layout/Main'
 
   export default {
     name: 'index-page',
     components: {
       AppAside,
-      AppHeader,
       AppMain
     }
   }
@@ -38,6 +31,13 @@
     padding: 0;
   }
 
+  html,
+  body,
+  #app,
+  .el-container
+   {
+    height: 100%;
+  }
   body { font-family: 'Source Sans Pro', sans-serif; }
 
   .el-header,
@@ -46,12 +46,6 @@
     color: rgb(255, 255, 255);
     text-align: center;
     line-height: 60px;
-  }
-
-  .el-aside {
-    border-right: 5px solid #eee;
-    text-align: center;
-    line-height: 120px;
   }
 
   .el-main {

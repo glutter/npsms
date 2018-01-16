@@ -4,7 +4,6 @@
     :data="createdEn"
     style="width: 100%"
     stripe
-    border
     empty-text='Нет данных'
     max-height="720">
 
@@ -96,14 +95,14 @@
 
     <el-table-column
       fixed="right"
-      width="130"
+      width="140"
       label="Операции">
       <template slot-scope="scope">
         <el-button
           @click.native.prevent="sendSMS(scope.$index, createdEn)"
-          type="text"
+          type="primary"
           size="small">
-          Send SMS
+          Отправить СМС
         </el-button>
       </template>
     </el-table-column>
@@ -139,8 +138,5 @@ export default {
   }
   .el-table .cell {
     word-break: normal;
-  }
-  .el-table {
-    font-size: inherit;
   }
 </style>
