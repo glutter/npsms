@@ -15,7 +15,9 @@ const locale = require('element-ui/lib/locale/lang/ru-RU')
 Vue.use(ElementUI, { locale })
 /* eslint-disable no-new */
 new Vue({
-  components: { App },
+  components: {
+    App
+  },
   router,
   store,
   template: '<App/>'

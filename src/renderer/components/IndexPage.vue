@@ -1,29 +1,22 @@
 <template>
+  <!-- <Spinner v-if="!$data" class="spinner_wrap" message="Загружаем..." size="52" line-size="4" line-bg-color="#f00" line-fg-color="#fff" font-size="20" text-fg-color="#fff"></Spinner> -->
   <el-container>
-  <el-header height="60px">
-    <AppHeader/>
-  </el-header>
-  <el-container>
-    <!-- <el-aside width="260px">
-      <AppAside/>
-    </el-aside> -->
-    <el-main>
-      <AppMain/>
-    </el-main>
-  </el-container>
+		<el-main>
+			<AppMain/>
+		</el-main>
 </el-container>
 </template>
 
 <script>
+  import Spinner from 'vue-simple-spinner'
   import AppAside from './Layout/Aside'
-  import AppHeader from './Layout/Header'
   import AppMain from './Layout/Main'
 
   export default {
     name: 'index-page',
     components: {
+      Spinner,
       AppAside,
-      AppHeader,
       AppMain
     }
   }
@@ -31,11 +24,17 @@
 
 <style>
   @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
-
+[v-cloak] {
+  display: none;
+}
   * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+  }
+
+  html, body, #app {
+    height: 100%;
   }
 
   body { font-family: 'Source Sans Pro', sans-serif; }
@@ -74,5 +73,11 @@
 
   .el-container:nth-child(7) .el-aside {
     line-height: 320px;
+  }
+  .spinner_wrap {
+    height: 100%;
+    position: relative;
+    background: #ff0000;
+    padding-top: 50vh;
   }
 </style>
