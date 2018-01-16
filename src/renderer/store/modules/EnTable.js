@@ -1,4 +1,47 @@
 import axios from 'axios'
+import smpp from 'smpp'
+
+var session = smpp.connect('94.249.146.183', 29900)
+var didConnect = false
+
+session.on('connect', function () {
+  didConnect = true
+
+  session.bind_transceiver({
+    system_id: 'bitrix_polystar',
+    password: 'polystar2016'
+  }, function (pdu) {
+    console.log('pdu status', lookupPDUStatusKey(pdu.command_status))
+    if (pdu.command_status === 0) {
+      console.log('Successfully bound')
+    }
+  })
+})
+
+function lookupPDUStatusKey (pduCommandStatus) {
+  for (var k in smpp.errors) {
+    if (smpp.errors[k] === pduCommandStatus) {
+      return k
+    }
+  }
+}
+
+function connectSMPP () {
+  console.log('smpp reconnecting')
+  session.connect()
+}
+
+session.on('close', function () {
+  console.log('smpp disconnected')
+  if (didConnect) {
+    connectSMPP()
+  }
+})
+
+session.on('error', function (error) {
+  console.log('smpp error', error)
+  didConnect = false
+})
 
 const state = {
   createdEn: [],
@@ -9,12 +52,6 @@ const mutations = {
   SET_EN_LIST (state, createdEn) {
     state.createdEn = createdEn
   }
-  // DECREMENT_MAIN_COUNTER (state) {
-  //   state.main--
-  // },
-  // INCREMENT_MAIN_COUNTER (state) {
-  //   state.main++
-  // }
 }
 
 const actions = {
@@ -49,11 +86,18 @@ const actions = {
   },
   SEND_SMS: function ({ commit }, [enNumber, phoneNumber]) {
     console.log('выход', enNumber, phoneNumber)
+    session.submit_sm({
+      source_addr: 'POLYSTAR',
+      destination_addr: phoneNumber,
+      short_message: 'Ваш номер накладной для получения: ' + enNumber
+    }, function (pdu) {
+      console.log('sms pdu status', lookupPDUStatusKey(pdu.command_status))
+      if (pdu.command_status === 0) {
+        // Message successfully sent
+        console.log(pdu.message_id)
+      }
+    })
   }
-  // someAsyncTask ({ commit }) {
-  //   // do something async
-  //   commit('INCREMENT_MAIN_COUNTER')
-  // }
 }
 
 export default {

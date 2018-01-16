@@ -24,7 +24,9 @@
 
 <style>
   @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
-
+[v-cloak] {
+  display: none;
+}
   * {
     box-sizing: border-box;
     margin: 0;
@@ -68,5 +70,11 @@
 
   .el-container:nth-child(7) .el-aside {
     line-height: 320px;
+  }
+  .spinner_wrap {
+    height: 100%;
+    position: relative;
+    background: #ff0000;
+    padding-top: 50vh;
   }
 </style>

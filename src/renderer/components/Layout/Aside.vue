@@ -1,30 +1,28 @@
 <template>
-    <el-menu default-active="2" class="el-menu-vertical" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
-      <el-submenu index="1">
-        <template slot="title">
-          <i class="el-icon-location"></i>
-          <span slot="title">Navigator One</span>
-        </template>
-        <el-menu-item-group>
-          <span slot="title">Group One</span>
-          <el-menu-item index="1-1">item one</el-menu-item>
-          <el-menu-item index="1-2">item two</el-menu-item>
-        </el-menu-item-group>
-        <el-menu-item-group title="Group Two">
-          <el-menu-item index="1-3">item three</el-menu-item>
-        </el-menu-item-group>
-        <el-submenu index="1-4">
-          <span slot="title">item four</span>
-          <el-menu-item index="1-4-1">item one</el-menu-item>
-        </el-submenu>
-      </el-submenu>
+    <el-menu default-active="1" class="el-menu-vertical" :collapse="isCollapse">
+      <el-menu-item index="1">
+        <i class="el-icon-menu"></i>
+        <span slot="title">Мои накладные</span>
+      </el-menu-item>
       <el-menu-item index="2">
         <i class="el-icon-menu"></i>
-        <span slot="title">Navigator Two</span>
+        <span slot="title">Отследить посылку</span>
       </el-menu-item>
       <el-menu-item index="3">
         <i class="el-icon-setting"></i>
-        <span slot="title">Navigator Three</span>
+        <span slot="title">Стоимость доставки</span>
+      </el-menu-item>
+      <el-menu-item index="4">
+        <i class="el-icon-setting"></i>
+        <span slot="title">Сроки доставки</span>
+      </el-menu-item>
+      <el-menu-item index="5">
+        <i class="el-icon-setting"></i>
+        <span slot="title">Ближайшее отделение</span>
+      </el-menu-item>
+      <el-menu-item index="6">
+        <i class="el-icon-setting"></i>
+        <span slot="title">Настройки</span>
       </el-menu-item>
     </el-menu>
 </template>
