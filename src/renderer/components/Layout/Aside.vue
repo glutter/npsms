@@ -5,8 +5,10 @@
         <span slot="title">Мои накладные</span>
       </el-menu-item>
       <el-menu-item index="2">
-        <i class="el-icon-menu"></i>
-        <span slot="title">Отследить посылку</span>
+        <router-link to="/parent/foo">
+          <div><i class="el-icon-menu"></i>
+          <span slot="title">Отследить посылку</span></div>
+        </router-link>
       </el-menu-item>
       <el-menu-item index="3">
         <i class="el-icon-setting"></i>

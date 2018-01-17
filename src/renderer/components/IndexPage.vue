@@ -4,7 +4,7 @@
       <AppAside/>
     </el-aside>
     <el-main>
-      <AppMain/>
+      <router-view></router-view>
     </el-main>
 </el-container>
 </template>
