@@ -18,6 +18,12 @@
       @click="getEn">
       Получить список ЕН</el-button>
     </el-form-item>
+    <el-form-item>
+      <el-button
+      type="primary"
+      @click="sendAllSMS">
+      Отправить всем</el-button>
+    </el-form-item>
   </el-form>
 </template>
 
@@ -43,6 +49,9 @@ export default {
   methods: {
     getEn () {
       this.$store.dispatch('LOAD_EN_LIST')
+    },
+    sendAllSMS () {
+      this.$store.dispatch('SEND_ALL_SMS')
     }
   }
 }

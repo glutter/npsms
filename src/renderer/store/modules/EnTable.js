@@ -45,12 +45,16 @@ session.on('error', function (error) {
 
 const state = {
   createdEn: [],
-  loading: false
+  loading: false,
+  multipleSelection: []
 }
 
 const mutations = {
   SET_EN_LIST (state, createdEn) {
     state.createdEn = createdEn
+  },
+  SET_MULTI_EN (state, multipleSelection) {
+    state.multipleSelection = multipleSelection
   }
 }
 
@@ -97,6 +101,15 @@ const actions = {
         console.log(pdu.message_id)
       }
     })
+  },
+  SEND_ALL_SMS: function ({commit}) {
+    var allMessages = this.state.EnTable.multipleSelection
+    if (allMessages.length !== 0) {
+      console.log(allMessages)
+      alert('Успешно отправлено')
+    } else {
+      alert('Нечего отправлять')
+    }
   }
 }
 

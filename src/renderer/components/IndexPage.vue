@@ -10,23 +10,23 @@
 </template>
 
 <script>
-  import AppAside from './Layout/Aside'
-  import AppMain from './Layout/Main'
+  import AppAside from './Aside/Aside'
 
   export default {
-    name: 'index-page',
+    name: 'index',
     components: {
-      AppAside,
-      AppMain
+      AppAside
     }
   }
 </script>
 
 <style>
   @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
-[v-cloak] {
-  display: none;
-}
+
+  [v-cloak] {
+    display: none;
+  }
+
   * {
     box-sizing: border-box;
     margin: 0;
@@ -40,8 +40,15 @@
    {
     height: 100%;
   }
-  body { font-family: 'Source Sans Pro', sans-serif; }
 
+  body {
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
   .el-header,
   .el-footer {
     background-color: rgb(206, 14, 72);
