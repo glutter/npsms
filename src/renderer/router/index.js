@@ -3,10 +3,8 @@ import Router from 'vue-router'
 
 import IndexPage from '@/components/IndexPage'
 import AppMain from '@/components/Pages/Main'
-import FindPackage from '@/components/Pages/FindPackage'
 import PackageCost from '@/components/Pages/PackageCost'
 import Delivery from '@/components/Pages/Delivery'
-import FindStorage from '@/components/Pages/FindStorage'
 import Settings from '@/components/Pages/Settings'
 
 Vue.use(Router)
@@ -27,11 +25,6 @@ export default new Router({
           component: AppMain
         },
         {
-          path: 'find-package',
-          name: 'find-package',
-          component: FindPackage
-        },
-        {
           path: 'package-cost',
           name: 'package-cost',
           component: PackageCost
@@ -40,11 +33,6 @@ export default new Router({
           path: 'delivery',
           name: 'delivery',
           component: Delivery
-        },
-        {
-          path: 'find-storage',
-          name: 'find-storage',
-          component: FindStorage
         },
         {
           path: 'settings',

@@ -1,6 +1,8 @@
 <template>
   <el-form :inline="true" class="np-form-inline">
-    <el-form-item label="Дата">
+    <el-row>
+      <el-col :span="18">
+        <el-form-item label="Дата">
       <el-date-picker
         v-model="dateFilter"
         format="dd.MM.yyyy"
@@ -18,12 +20,15 @@
       @click="getEn">
       Получить список ЕН</el-button>
     </el-form-item>
-    <el-form-item>
+      </el-col>
+      <el-col :span="6">
+        <el-form-item>
       <el-button
-      type="primary"
-      @click="sendAllSMS">
+      @click="sendAllSMS"><i class="el-icon-message"></i>
       Отправить всем</el-button>
     </el-form-item>
+      </el-col>
+    </el-row>
   </el-form>
 </template>
 

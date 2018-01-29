@@ -1,33 +1,21 @@
 <template>
-    <el-menu default-active="1" class="el-menu-vertical" :collapse="isCollapse">
+    <el-menu default-active="1" class="el-menu-vertical">
       <router-link to="/index-page">
         <el-menu-item index="1">
-          <i class="el-icon-menu"></i>
+          <i class="el-icon-document"></i>
           <span slot="title">Мои накладные</span>
-        </el-menu-item>
-      </router-link>
-      <router-link to="/index-page/find-package">
-        <el-menu-item index="2">
-          <i class="el-icon-menu"></i>
-          <span slot="title">Отследить посылку</span>
         </el-menu-item>
       </router-link>
       <router-link to="/index-page/package-cost">
         <el-menu-item index="3">
-          <i class="el-icon-setting"></i>
+          <i class="el-icon-sold-out"></i>
           <span slot="title">Стоимость доставки</span>
         </el-menu-item>
       </router-link>
       <router-link to="/index-page/delivery">
         <el-menu-item index="4">
-          <i class="el-icon-setting"></i>
+          <i class="el-icon-date"></i>
           <span slot="title">Сроки доставки</span>
-        </el-menu-item>
-      </router-link>
-      <router-link to="/index-page/find-storage">
-        <el-menu-item index="5">
-          <i class="el-icon-setting"></i>
-          <span slot="title">Ближайшее отделение</span>
         </el-menu-item>
       </router-link>
       <router-link to="/index-page/settings">
@@ -42,9 +30,7 @@
 <script>
   export default {
     data () {
-      return {
-        isCollapse: false
-      }
+      return {}
     },
     methods: {
       handleOpen (key, keyPath) {
@@ -58,8 +44,11 @@
 </script>
 
 <style>
-  .el-menu-vertical:not(.el-menu--collapse) {
-    // min-height: 400px;
+  .el-aside {
+    background: rgb(233, 234, 245);
+  }
+  .el-menu {
+    background: transparent;
   }
   .el-menu-vertical {
     min-height: 100%;
