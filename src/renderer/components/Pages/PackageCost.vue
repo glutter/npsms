@@ -1,6 +1,6 @@
 <template lang="html">
   <div>
-    <h1>package cost</h1>
+    <h1>Стоимость доставки</h1>
   </div>
 </template>
 

@@ -1,7 +1,9 @@
 import axios from 'axios'
-import {session, lookupPDUStatusKey} from '@/plugins/smpp'
+import {session, lookupPDUStatusKey, sender} from '@/plugins/smpp'
+import db from '@/plugins/datastore'
 
-const sender = 'POLYSTAR'
+let apiUrl = db.get('settings.apiURL')
+let apiKey = db.get('settings.apiKey')
 
 const state = {
   createdEn: [],
@@ -20,8 +22,6 @@ const mutations = {
 
 const actions = {
   LOAD_EN_LIST: function ({ commit }) {
-    var url = 'https://api.novaposhta.ua/v2.0/json/'
-    var apiKey = '6be5aca674dcb520b2b64a50c9f51935'
     var apiDateFrom = this.state.DateFilter.dateFilter[0]
     var apiDateTo = this.state.DateFilter.dateFilter[1]
 
@@ -36,7 +36,7 @@ const actions = {
       }
     }
     axios
-      .post(url, data)
+      .post(apiUrl, data)
       .then(response => {
         if (response.data.data.length !== 0) {
           commit('SET_EN_LIST', response.data.data)

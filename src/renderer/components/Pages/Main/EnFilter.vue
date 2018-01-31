@@ -1,7 +1,7 @@
 <template>
   <el-form :inline="true" class="np-form-inline">
     <el-row>
-      <el-col :span="18">
+      <el-col class="no-bt-margin" :span="18">
         <el-form-item label="Дата">
       <el-date-picker
         v-model="dateFilter"
@@ -21,7 +21,7 @@
       Получить список ЕН</el-button>
     </el-form-item>
       </el-col>
-      <el-col :span="6">
+      <el-col class="no-bt-margin" :span="6">
         <el-form-item>
       <el-button
       @click="sendAllSMS"><i class="el-icon-message"></i>
@@ -67,6 +67,6 @@ export default {
     padding-top: 22px;
     padding-left: 22px;
     background: rgb(233, 234, 245);
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
 </style>

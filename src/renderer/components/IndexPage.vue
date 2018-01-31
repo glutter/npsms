@@ -53,10 +53,23 @@
 
   .el-main {
     color: #333;
-    /* text-align: center;
-    line-height: 160px; */
   }
   .el-container.is-vertical {
     height: 100%;
+  }
+  .el-row {
+    margin-bottom: 20px;
+  }
+
+  .el-row:last-child {
+    margin-bottom: 0;
+  }
+
+  .el-col {
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  .el-col.no-bt-margin {
+    margin-bottom: 0;
   }
 </style>

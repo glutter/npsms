@@ -1,5 +1,5 @@
 <template lang="html">
-  <h1>delivery</h1>
+  <h1>Сроки доставки</h1>
 </template>
 
 <script>

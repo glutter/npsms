@@ -41,10 +41,5 @@ export default new Router({
         }
       ]
     }
-    // {
-    //   path: '/find-package',
-    //   name: 'find-package',
-    //   component: FindPackage
-    // }
   ]
 })

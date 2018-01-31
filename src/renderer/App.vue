@@ -6,7 +6,7 @@
 
 <script>
   export default {
-    name: 'NPSender'
+    name: 'SMSSenderForNP'
   }
 </script>
 

@@ -1,14 +1,21 @@
 import smpp from 'smpp'
+import db from '@/plugins/datastore'
 
-var session = smpp.connect('94.249.146.183', 29900)
-var didConnect = false
+let smppUrl = db.get('settings.smsServer')
+let smppPort = db.get('settings.smsPort')
+let smppLogin = db.get('settings.smsLogin')
+let smppPass = db.get('settings.smsPass')
+let sender = db.get('settings.smsAlfaName')
+
+const session = smpp.connect(smppUrl, smppPort)
+let didConnect = false
 
 session.on('connect', function () {
   didConnect = true
 
   session.bind_transceiver({
-    system_id: 'bitrix_polystar',
-    password: 'polystar2016'
+    system_id: smppLogin,
+    password: smppPass
   }, function (pdu) {
     console.log('pdu status', lookupPDUStatusKey(pdu.command_status))
     if (pdu.command_status === 0) {
@@ -18,7 +25,7 @@ session.on('connect', function () {
 })
 
 function lookupPDUStatusKey (pduCommandStatus) {
-  for (var k in smpp.errors) {
+  for (let k in smpp.errors) {
     if (smpp.errors[k] === pduCommandStatus) {
       return k
     }
@@ -42,4 +49,4 @@ session.on('error', function (error) {
   didConnect = false
 })
 
-export {session, lookupPDUStatusKey}
+export {session, lookupPDUStatusKey, sender}
