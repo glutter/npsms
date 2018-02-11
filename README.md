@@ -1,6 +1,6 @@
-# vuelectron
+# New Post SMS Sender
 
-> An electron-vue project
+> A simple application for sendind SMS for recepients of New Post delivery system, based on Vue.js and Electron.js
 
 #### Build Setup
 
